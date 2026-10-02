@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Plomberie — mémoriser les accessoires sanitaires, apprendre à lire un plan et s'entraîner avec des quiz aléatoires.">
+  <title>La Plomberie — Atelier de révision</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Retour à l'accueil"><span class="brand-mark">L</span><span>LA PLOMBERIE</span></a>
+    <nav aria-label="Navigation principale">
+      <a class="nav-link active" href="#accueil">Accueil</a>
+      <a class="nav-link" href="#catalogue">Catalogue</a>
+      <a class="nav-link" href="#plans">Lire un plan</a>
+      <a class="nav-link" href="#quiz">Quiz</a>
+    </nav>
+    <button class="header-cta" data-go="quiz">Commencer un quiz <span>→</span></button>
+    <button class="menu-button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>✦</span> CENTRE DE FORMATION</div>
+        <h1>Maîtrisez votre métier,<br><em>un raccord à la fois.</em></h1>
+        <p>Votre atelier de révision pour mémoriser les accessoires sanitaires, décoder les plans et devenir un plombier chauffagiste accompli.</p>
+        <div class="hero-actions">
+          <button class="btn primary" data-go="catalogue">Explorer le catalogue <span>→</span></button>
+          <button class="btn secondary" data-go="quiz"><span class="play">▶</span> Lancer un quiz</button>
+        </div>
+        <div class="stats" aria-label="Statistiques du site">
+          <div><strong id="stat-items">24</strong><span>fiches techniques</span></div>
+          <div><strong>4</strong><span>familles métier</span></div>
+          <div><strong>∞</strong><span>quiz aléatoires</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration technique d'un mitigeur">
+        <div class="blueprint-grid"></div>
+        <svg class="tap-drawing" viewBox="0 0 560 430" role="img" aria-label="Vue éclatée d'un mitigeur">
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <path class="fine" d="M135 92h220M104 185h350M184 338h270M135 80v25M355 80v25M92 185h24M442 185h24"/>
+            <path class="object" d="M150 193c0-33 18-55 47-55h102c18 0 30 15 30 32v78h-43v-51c0-12-7-18-18-18h-51c-13 0-22 9-22 22v47h-45z"/>
+            <path class="object" d="M177 138V94h58v44M188 94V76h36v18M169 248h139v44H169zM183 292v45M292 292v45M169 337h38v16h-38zM274 337h38v16h-38z"/>
+            <path class="object" d="M329 167c61-4 97-22 115-54 11-20 26-22 35-13 11 11 5 25-8 30-6 39-52 78-142 81"/>
+            <circle cx="477" cy="112" r="9"/>
+            <path class="accent-line" d="M162 270h135M196 155h93M208 78h-4M211 114h43"/>
+            <path class="measure" d="M125 138V94m0 0 6 10m-6-10-6 10M125 138l6-10m-6 10-6-10"/>
+          </g>
+          <g class="labels" font-size="11" font-family="DM Sans"><text x="75" y="82">COMMANDE</text><text x="370" y="80">BEC ORIENTABLE</text><text x="67" y="272">CORPS</text><text x="360" y="325">FLEXIBLES</text></g>
+        </svg>
+        <span class="drawing-caption">MITIGEUR MONOCOMMANDE <b>01 — 04</b></span>
+        <span class="sticker">PRÊT<br>POUR LE<br>CHANTIER</span>
+      </div>
+    </section>
+
+    <section class="intro-section section" id="catalogue">
+      <div class="section-heading">
+        <div><span class="kicker">LE CARNET DU PLOMBIER</span><h2>Tout ce qu'il faut<br><em>connaître.</em></h2></div>
+        <p>Des fiches claires et pratiques, organisées comme votre caisse à outils. Recherchez, filtrez et mémorisez l'essentiel.</p>
+      </div>
+      <div class="catalogue-tools">
+        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Rechercher un accessoire, un usage…" aria-label="Rechercher dans le catalogue"></label>
+        <div class="filters" id="filters" aria-label="Filtrer par famille"></div>
+      </div>
+      <div class="cards-grid" id="catalogue-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>Aucune fiche ne correspond à cette recherche.</p>
+      <button class="show-more" id="show-more">Afficher toutes les fiches <span>↓</span></button>
+    </section>
+
+    <section class="plans-section section" id="plans">
+      <div class="plans-copy">
+        <span class="kicker light">LECTURE DE PLAN</span>
+        <h2>Les plans parlent.<br><em>Apprenez leur langage.</em></h2>
+        <p>Un bon professionnel sait repérer rapidement les réseaux, leurs diamètres, les organes de coupure et le sens d'écoulement.</p>
+        <div class="legend-list" id="legend-list"></div>
+        <button class="btn ivory" id="open-plan-guide">Voir le mémo complet <span>→</span></button>
+      </div>
+      <div class="plan-board">
+        <div class="plan-top"><span>PLAN SANITAIRE · NIVEAU 01</span><b>ÉCH. 1:50</b></div>
+        <svg viewBox="0 0 650 470" role="img" aria-label="Exemple de plan sanitaire interactif">
+          <g class="walls" fill="none" stroke="currentColor"><path d="M30 30H620V430H30ZM330 30V430M30 230h300M500 30v200"/><path d="M142 230v-20m38 20v-20M330 145h20m-20 42h20M500 122h20m-20 42h20"/></g>
+          <g class="network cold" fill="none"><path d="M72 390V110H285V365H460V180H575"/><circle cx="72" cy="390" r="10"/></g>
+          <g class="network hot" fill="none"><path d="M94 390V132H264V385H480V200H575"/></g>
+          <g class="waste" fill="none"><path d="M120 365H300V405H530V250"/></g>
+          <g class="fixtures" fill="none" stroke="currentColor"><rect x="55" y="55" width="82" height="45" rx="18"/><path d="M75 100v17h42v-17M200 60h65v58h-65zM207 70h51v35h-51z"/><circle cx="455" cy="105" r="38"/><circle cx="455" cy="105" r="18"/><path d="M536 66h58v74h-58zM544 75h42v48h-42z"/></g>
+          <g class="plan-text" font-family="DM Sans"><text x="48" y="215">SALLE D'EAU</text><text x="355" y="215">CUISINE</text><text x="45" y="455">EF Ø16</text><text x="132" y="350">EU Ø40 ↘ 2%</text><text x="354" y="396">EU Ø50 ↘ 2%</text><text x="510" y="218">EC Ø12</text></g>
+          <g class="markers"><circle cx="72" cy="390" r="18"/><text x="67" y="396">1</text><circle cx="285" cy="365" r="18"/><text x="280" y="371">2</text><circle cx="480" cy="200" r="18"/><text x="475" y="206">3</text></g>
+        </svg>
+        <div class="plan-key"><span><i class="dot blue"></i>Eau froide (EF)</span><span><i class="dot red"></i>Eau chaude (EC)</span><span><i class="dot dark"></i>Évacuation (EU)</span></div>
+      </div>
+    </section>
+
+    <section class="quiz-section section" id="quiz">
+      <div class="quiz-intro">
+        <span class="kicker">À VOUS DE JOUER</span>
+        <h2>Testez vos<br><em>réflexes métier.</em></h2>
+        <p>Les questions et les réponses changent d'ordre à chaque partie. Prêt à vous challenger ?</p>
+        <div class="quiz-features"><span>✓ Questions aléatoires</span><span>✓ Correction expliquée</span><span>✓ Score sauvegardé</span></div>
+      </div>
+      <div class="quiz-card" id="quiz-card">
+        <div class="quiz-placeholder" id="quiz-placeholder">
+          <div class="quiz-number">?</div>
+          <h3>Choisissez votre entraînement</h3>
+          <p><strong id="question-total">Plus de 100 questions</strong> tirées au hasard, sans série identique.</p>
+          <div class="quiz-settings">
+            <label>Mode<select id="quiz-mode" aria-label="Mode de réponse"><option value="mixte">Mixte : écrit + QCM</option><option value="ecrit">Réponse écrite</option><option value="symboles">Reconnaître les symboles</option><option value="qcm">QCM classique</option></select></label>
+            <label>Thème<select id="quiz-category" aria-label="Thème du quiz"><option value="Tous">Tous les thèmes</option><option>Symboles &amp; schémas</option><option>Accessoires &amp; rôles</option><option>Raccords &amp; assemblage</option><option>Lecture de plan</option></select></label>
+            <label>Longueur<select id="quiz-length" aria-label="Nombre de questions"><option value="10">10 questions</option><option value="20">20 questions</option><option value="30">30 questions</option><option value="all">Session complète</option></select></label>
+          </div>
+          <button class="btn primary wide" id="start-quiz">Démarrer le quiz <span>→</span></button>
+          <p class="best-score" id="best-score">Votre meilleur score : —</p>
+        </div>
+        <div class="quiz-game" id="quiz-game" hidden>
+          <div class="quiz-meta"><span id="quiz-progress">QUESTION 1 / 10</span><span id="quiz-score">0 POINT</span></div>
+          <div class="progress"><i id="progress-bar"></i></div>
+          <span class="question-category" id="question-category"></span>
+          <h3 id="question-text"></h3>
+          <div class="symbol-challenge" id="symbol-challenge" hidden></div>
+          <div class="answers" id="answers"></div>
+          <form class="written-answer" id="written-answer" hidden><label for="written-input">Votre réponse</label><div><input id="written-input" autocomplete="off" placeholder="Écrivez le nom complet…"><button class="btn primary" type="submit">Valider</button></div><small>Les accents et les majuscules ne sont pas obligatoires.</small></form>
+          <div class="feedback" id="feedback" hidden></div>
+          <button class="btn primary wide" id="next-question" hidden>Question suivante <span>→</span></button>
+        </div>
+        <div class="quiz-results" id="quiz-results" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#accueil"><span class="brand-mark">L</span><span>LA PLOMBERIE</span></a>
+    <p>L'atelier numérique des plombiers chauffagistes.<br>Apprendre. Comprendre. Maîtriser.</p>
+    <div><strong>RACCOURCIS</strong><a href="#catalogue">Catalogue</a><a href="#plans">Lire un plan</a><a href="#quiz">Quiz</a></div>
+    <div class="footer-note">Pensé pour le chantier · Fait pour progresser</div>
+  </footer>
+
+  <dialog id="detail-modal"><button class="modal-close" aria-label="Fermer">×</button><div id="modal-content"></div></dialog>
+  <dialog id="plan-modal"><button class="modal-close" aria-label="Fermer">×</button><div class="modal-guide"><span class="kicker">MÉMO DE CHANTIER</span><h2>Bien lire un plan sanitaire</h2><div id="plan-guide-content"></div></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
