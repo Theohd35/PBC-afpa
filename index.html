@@ -106,8 +106,12 @@
         <div class="quiz-placeholder" id="quiz-placeholder">
           <div class="quiz-number">?</div>
           <h3>Choisissez votre entraînement</h3>
-          <p>10 questions tirées au hasard dans toute la bibliothèque.</p>
-          <select id="quiz-category" aria-label="Thème du quiz"><option value="Tous">Tous les thèmes</option><option>Alimentation</option><option>Évacuation</option><option>Robinetterie</option><option>Sécurité</option><option>Lecture de plan</option></select>
+          <p><strong id="question-total">Plus de 100 questions</strong> tirées au hasard, sans série identique.</p>
+          <div class="quiz-settings">
+            <label>Mode<select id="quiz-mode" aria-label="Mode de réponse"><option value="mixte">Mixte : écrit + QCM</option><option value="ecrit">Réponse écrite</option><option value="symboles">Reconnaître les symboles</option><option value="qcm">QCM classique</option></select></label>
+            <label>Thème<select id="quiz-category" aria-label="Thème du quiz"><option value="Tous">Tous les thèmes</option><option>Alimentation</option><option>Évacuation</option><option>Robinetterie</option><option>Sécurité</option><option>Lecture de plan</option></select></label>
+            <label>Longueur<select id="quiz-length" aria-label="Nombre de questions"><option value="10">10 questions</option><option value="20">20 questions</option><option value="30">30 questions</option><option value="all">Session complète</option></select></label>
+          </div>
           <button class="btn primary wide" id="start-quiz">Démarrer le quiz <span>→</span></button>
           <p class="best-score" id="best-score">Votre meilleur score : —</p>
         </div>
@@ -116,7 +120,9 @@
           <div class="progress"><i id="progress-bar"></i></div>
           <span class="question-category" id="question-category"></span>
           <h3 id="question-text"></h3>
+          <div class="symbol-challenge" id="symbol-challenge" hidden></div>
           <div class="answers" id="answers"></div>
+          <form class="written-answer" id="written-answer" hidden><label for="written-input">Votre réponse</label><div><input id="written-input" autocomplete="off" placeholder="Écrivez le nom complet…"><button class="btn primary" type="submit">Valider</button></div><small>Les accents et les majuscules ne sont pas obligatoires.</small></form>
           <div class="feedback" id="feedback" hidden></div>
           <button class="btn primary wide" id="next-question" hidden>Question suivante <span>→</span></button>
         </div>

@@ -15,6 +15,8 @@ Puis ouvrir <http://localhost:8000>.
 - 24 fiches métier filtrables et recherchables ;
 - conseils de pose, contrôle et représentation sur plan ;
 - plan sanitaire annoté et mémo en huit étapes ;
-- 20 questions classées par thème ;
+- 126 questions générées et rédigées, classées par thème ;
+- quatre modes : mixte, QCM, réponse écrite et reconnaissance de symboles ;
 - ordre des questions et réponses mélangé à chaque partie ;
+- symboles schématiques vectoriels usuels, affichés avec le rappel de toujours consulter la légende du projet ;
 - meilleur score conservé dans le navigateur.
